@@ -1,8 +1,22 @@
+import {useState} from 'react';
+
 import ProjectListItem from "./ProjectListItem";
 
 const ProjectList = ({ projects }) => {
 
-  const projectListItems = projects.map((project) => (
+  const [searchQuery, setSearchQuery] = useState("");
+
+  function handleSearch(e) {
+    setSearchQuery(e.target.value);
+  }
+
+  const filteredListItems = projects.filter(project => {
+    return (
+    project.name.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+  })
+
+  const projectListItems = filteredListItems.map((project) => (
     <ProjectListItem key={project.id} {...project} />
   ));
 
@@ -19,7 +33,11 @@ const ProjectList = ({ projects }) => {
         <button>Phase 2</button>
         <button>Phase 1</button>
       </div>
-      <input type="text" placeholder="Search..."/>
+      <input 
+        type="text"
+        placeholder="Search..."
+        onChange={handleSearch}
+      />
 
       <ul className="cards">{projectListItems}</ul>
     </section>
