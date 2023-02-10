@@ -76,12 +76,12 @@
             <ProjectEditForm onUpdateProject={onUpdateProject} />
           </Route>
 
-          <Route path="/projects/:id">
-            <ProjectDetail />
-          </Route>
-
           <Route path="/projects/new">
             <ProjectForm onAddProject={onAddProject} />
+          </Route>
+
+          <Route path="/projects/:id">
+            <ProjectDetail />
           </Route>
 
           <Route path="/projects">
