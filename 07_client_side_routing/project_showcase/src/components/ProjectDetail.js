@@ -2,7 +2,7 @@
 // to trigger appropriate GET requests
 
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 const ProjectDetail = () => {
   const [claps, setClaps] = useState(0);
@@ -57,6 +57,7 @@ const ProjectDetail = () => {
             <span className="badge blue">Phase {phase}</span>
           </div>
         </div>
+        <Link to="/projects">Go Back To Projects</Link>
       </div>
     </section>
   );
